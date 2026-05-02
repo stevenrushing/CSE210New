@@ -7,26 +7,39 @@ class Program
         Console.Write("What was your grade? ");
         string userGrade = Console.ReadLine();
         int userGradeInt = int.Parse(userGrade);
+        string letter = "";
         if (userGradeInt >= 90)
         {
-            Console.WriteLine("You got an A");
+            letter = "A";
         }
         else if (userGradeInt >= 80)
         {
-            Console.WriteLine("You got a B");
+            letter = "B";
         }
         else if (userGradeInt >= 70)
         {
-            Console.WriteLine("You got a C");
+            letter = "C";
         }
         else if (userGradeInt >= 60)
         {
-            Console.WriteLine("You got an F");
+            letter = "D";
         }
         else
         {
-            Console.WriteLine("You failed the course");
+            letter = "F";
         }
+
+        Console.WriteLine($"You got a {letter}");
+
+        if (userGradeInt >= 70)
+        {
+            Console.WriteLine("Congratulations, you passed!");
+        }
+        else
+        {
+            Console.WriteLine("You will do better next time. Good luck!");
+        }
+    
     }
 }
 

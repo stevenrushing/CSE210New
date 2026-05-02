@@ -17,7 +17,7 @@ class Program
         string guessCounterString;
         while (playGame == "yes")
         {
-            magicNumInt = randomMagicNumber.Next(1,11);
+            magicNumInt = randomMagicNumber.Next(1,101);
             do
             {
                 Console.Write("What is your guess? ");

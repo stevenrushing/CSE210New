@@ -18,7 +18,7 @@ class Program
 
         static int PromptUserNumber()
         {
-            Console.Write("Please enter your favorite number: ")
+            Console.Write("Please enter your favorite number: ");
             int favNumber = int.Parse(Console.ReadLine());
             return favNumber;
         }
