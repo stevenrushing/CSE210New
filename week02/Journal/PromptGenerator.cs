@@ -1,6 +1,6 @@
 public class PromptGenerator
 {
-    public List<string> _prompts = new List<string>();
+    private List<string> _prompts = new List<string>();
 
     public void LoadPrompts()
     {
@@ -13,8 +13,8 @@ public class PromptGenerator
 
     public string GetRandomPrompt()
     {
-        Random randomPrompt = new Random();
-        int randomIndex = randomPrompt.Next(_prompts.Count);
+        Random randomGenerator = new Random();
+        int randomIndex = randomGenerator.Next(_prompts.Count);
         return _prompts[randomIndex];
 
     }

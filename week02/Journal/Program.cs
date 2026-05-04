@@ -18,24 +18,18 @@ class Program
         //     userChoice = int.Parse(Console.ReadLine());
         // }
 
+        string randomPromptGenerated = RandomPrompt();
+        Console.WriteLine(randomPromptGenerated);
+
+
+
+    }
+    static string RandomPrompt()
+    {
         PromptGenerator test = new PromptGenerator();
         test.LoadPrompts();
-
-        Console.WriteLine("--- Before ---");
-        foreach (string line in test._prompts)
-        {
-            Console.WriteLine(line);
-        }
-
         string prompt = test.GetRandomPrompt();
-        Console.WriteLine($"\nSelected: {prompt}");
         test.ArchivePrompt(prompt);
-
-        Console.WriteLine("\n--- After ---");
-        foreach (string line in test._prompts)
-        {
-            Console.WriteLine(line);
-        }
-
+        return prompt;
     }
 }
