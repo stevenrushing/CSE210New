@@ -18,13 +18,13 @@ public class Journal
 
     public void SaveToFile(string file)
     {
-    using (StreamWriter outputFile = new StreamWriter(file))
-    {
-        foreach (Entry entry in _entries)
+        using (StreamWriter outputFile = new StreamWriter(file))
         {
-            outputFile.WriteLine($"{entry._date}||{entry._promptText}||{entry._entryText}");  
-        } 
-    }
+            foreach (Entry entry in _entries)
+            {
+                outputFile.WriteLine($"{entry._date}||{entry._promptText}||{entry._entryText}");  
+            } 
+        }
     }
 
     public void LoadFromFile (string file)
