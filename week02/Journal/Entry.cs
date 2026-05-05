@@ -1,22 +1,19 @@
-// public class Entry
-// {
-//     public string _name;
-//     public List<Job> _jobs = new List<Job>();
+public class Entry
+{
+    public string _date;
+    public string _promptText;
+    public string _entryText;
 
-//     public void Display()
-//     {
-//         Console.WriteLine(_name);
-//         Console.WriteLine("Jobs:");
-//         for (int i = 0; i < _jobs.Count; i++)
-//         {
-//             _jobs[i].Display();
-//         }
+    public Entry(string date, string promptText, string entryText)
+    {
+        _date = date;
+        _promptText = promptText;
+        _entryText = entryText;
+    }
 
-//         // this is how it is done in the example, and this is probably better
-//         // foreach (Job job in _jobs)
-//         // {
-//         //     // This calls the Display method on each job
-//         //     job.Display();
-//         // }
-//     }
-// }
+    public void Display()
+    {
+         Console.WriteLine($"Date: {_date}  Prompt: {_promptText}");
+         Console.WriteLine($"Entry: {_entryText}");
+    }
+}

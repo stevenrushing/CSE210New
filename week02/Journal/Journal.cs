@@ -1,22 +1,42 @@
-// public class Journal
-// {
-//     public string _name;
-//     public List<Job> _jobs = new List<Job>();
+public class Journal
+{
+    public List<Entry> _entries = new List<Entry>();
 
-//     public void Display()
-//     {
-//         Console.WriteLine(_name);
-//         Console.WriteLine("Jobs:");
-//         for (int i = 0; i < _jobs.Count; i++)
-//         {
-//             _jobs[i].Display();
-//         }
+    public void AddEntry(Entry newEntry)
+    {
+        _entries.Add(newEntry);
+    }
 
-//         // this is how it is done in the example, and this is probably better
-//         // foreach (Job job in _jobs)
-//         // {
-//         //     // This calls the Display method on each job
-//         //     job.Display();
-//         // }
-//     }
-// }
+    public void DisplayAll()
+    {
+        foreach (Entry entry in _entries)
+        {
+            entry.Display();
+            Console.WriteLine();
+        }
+    }
+
+    public void SaveToFile(string file)
+    {
+    using (StreamWriter outputFile = new StreamWriter(file))
+    {
+        foreach (Entry entry in _entries)
+        {
+            outputFile.WriteLine($"{entry._date}||{entry._promptText}||{entry._entryText}");  
+        } 
+    }
+    }
+
+    public void LoadFromFile (string file)
+    {
+        _entries.Clear();
+        string filename = $"{file}";
+        string[] entries = System.IO.File.ReadAllLines(filename);
+        foreach (String line in entries)
+        {
+            string[] parts = line.Split("||");
+            Entry newEntry = new Entry(parts[0], parts[1], parts[2]);
+            _entries.Add(newEntry);
+        }
+    }
+}

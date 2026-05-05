@@ -4,7 +4,7 @@ public class PromptGenerator
 
     public void LoadPrompts()
     {
-        string[] linesRead = File.ReadAllLines("writing_prompts_short.txt");
+        string[] linesRead = File.ReadAllLines("writing_prompts.txt");
         foreach (string item in linesRead)
         {
             _prompts.Add(item);
@@ -28,6 +28,6 @@ public class PromptGenerator
 
     public void SavePrompts()
     {
-        File.WriteAllLines("writing_prompts_short.txt", _prompts);
+        File.WriteAllLines("writing_prompts.txt", _prompts);
     }
 }
