@@ -1,3 +1,5 @@
+using System.Globalization;
+
 public class Fraction
 {
     private int _top;
@@ -19,6 +21,37 @@ public class Fraction
     {
         _top = top;
         _bottom = bottom;
+    }
+
+    public string GetFractionString()
+    {
+        string fractionString = $"{_top}/{_bottom}";
+        return fractionString;
+    }
+
+    public double GetDecimalValue()
+    {
+        return (double)_top / (double)_bottom;
+    }
+
+    public int GetTop()
+    {
+        return _top;
+    }
+
+    public int GetBottom()
+    {
+        return _bottom;
+    }
+
+    public void SetTop(int number)
+    {
+        _top = number;
+    }
+
+    public void SetBottom(int number)
+    {
+        _bottom = number;
     }
 
 }
