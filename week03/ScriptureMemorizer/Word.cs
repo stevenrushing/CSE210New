@@ -1,5 +1,3 @@
-using System.Reflection.PortableExecutable;
-using System.Runtime.CompilerServices;
 
 public class Word
 {
