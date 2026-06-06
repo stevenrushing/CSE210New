@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 class Activity
 {
@@ -50,7 +51,7 @@ class Activity
 
     public void ShowSpinner(int seconds)
     {
-        List<string> spinnerChars = new List<string> { "|", "/", "-", "\\" };
+        List<string> spinnerChars = new List<string> { "|", "/", "-", "\\" }; 
         DateTime endTime = DateTime.Now.AddSeconds(seconds);
         int i = 0;
 
