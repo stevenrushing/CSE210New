@@ -5,6 +5,7 @@ class ListingActivity : Activity
 {
     private int _count;
     private List<string> _prompts;
+    private List<int> _usedPromptIndexes;
 
     public ListingActivity() : base("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
@@ -18,12 +19,25 @@ class ListingActivity : Activity
             "When have you felt the Holy Ghost this month?",
             "Who are some of your personal heroes?"
         };
+
+        _usedPromptIndexes = new List<int>();
     }
 
     private string GetRandomPrompt()
     {
-        Random random = new Random();
-        int index = random.Next(_prompts.Count);
+        if (_usedPromptIndexes.Count == _prompts.Count)
+        {
+            _usedPromptIndexes = new List<int>();
+        }
+
+        Random rand = new Random();
+        int index = rand.Next(_prompts.Count);
+        while (_usedPromptIndexes.Contains(index))
+        {
+            index = rand.Next(_prompts.Count);
+        }
+
+        _usedPromptIndexes.Add(index);
         return _prompts[index];
     }
 

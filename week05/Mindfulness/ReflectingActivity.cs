@@ -5,6 +5,8 @@ class ReflectingActivity : Activity
 {
     private List<string> _prompts;
     private List<string> _questions;
+    private List<int> _usedPromptIndexes;
+    private List<int> _usedQuestionIndexes;
 
     public ReflectingActivity() : base("Reflecting", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
@@ -28,19 +30,44 @@ class ReflectingActivity : Activity
             "What did you learn about yourself through this experience?",
             "How can you keep this experience in mind in the future?"
         };
+
+        _usedPromptIndexes = new List<int>();
+        _usedQuestionIndexes = new List<int>();
     }
 
     private string GetRandomPrompt()
     {
-        Random random = new Random();
-        int index = random.Next(_prompts.Count);
+        if (_usedPromptIndexes.Count == _prompts.Count)
+        {
+            _usedPromptIndexes = new List<int>();
+        }
+
+        Random rand = new Random();
+        int index = rand.Next(_prompts.Count);
+        while (_usedPromptIndexes.Contains(index))
+        {
+            index = rand.Next(_prompts.Count);
+        }
+
+        _usedPromptIndexes.Add(index);
         return _prompts[index];
     }
 
     private string GetRandomQuestion()
     {
-        Random random = new Random();
-        int index = random.Next(_questions.Count);
+        if (_usedQuestionIndexes.Count == _questions.Count)
+        {
+            _usedQuestionIndexes = new List<int>();
+        }
+
+        Random rand = new Random();
+        int index = rand.Next(_questions.Count);
+        while (_usedQuestionIndexes.Contains(index))
+        {
+            index = rand.Next(_questions.Count);
+        }
+
+        _usedQuestionIndexes.Add(index);
         return _questions[index];
     }
 

@@ -1,5 +1,7 @@
 using System;
 
+// Exceed - tracked indexes so prompts aren't used more than once until they all have been
+
 class Program
 {
     static void Main(string[] args)
