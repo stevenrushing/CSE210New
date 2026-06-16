@@ -1,0 +1,4 @@
+200
+SimpleGoal:asdf,asdf,100,True
+EternalGoal:qwer,qwer,250
+ChecklistGoal:zxcv,zxcv,100,1,5,250
